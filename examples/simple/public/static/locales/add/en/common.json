@@ -1,0 +1,4 @@
+{
+  "note": "if this common.json is not added, then i18n-add1.js complains that this common file does not exist; however, when we add it, it doesn't look here for `add-key` for translation and it does not complain if the common.json file does not exist.",
+  "add-key": "EN - additional key in /public/static/locales/add/en/common.json"
+}
