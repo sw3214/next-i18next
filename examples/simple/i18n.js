@@ -22,19 +22,30 @@ module.exports = new NextI18Next({
     // These "addPath" options don't actually add the path...
     // Trying to figure out how to make the paths available.
     // ----
-    // addPath: "/locales/add/{{lng}}/{{ns}}.json"
-    // addPath: "http://localhost:3000/static/locales/add/{{lng}}/{{ns}}.json"  // Note, these locations are available via web browser
-    // addPage: function(lng, ns) {
-    //   return `http://localhost:3000/static/locales/add/${lng}/${ns}.json`
-    // },
-    addPage: function(lng, ns) {
+    addPath: function(lng, ns) {
       if (typeof window == "undefined") {
         // return path.resolve(`./public/locales/${lng}/${ns}.json`);
         return path.resolve(`./public/static/locales/add/${lng}/${ns}.json`);
       } else {
-        return `http://localhost:3000/static/locales/add/${lng}/${ns}.json`;
+        return `/locales/add/${lng}/${ns}.json`;
       }
     },
+    // ----
+    // additional attempts at adding path which didn't work:
+    // ----
+    // addPath: "/locales/add/{{lng}}/{{ns}}.json"
+    // addPath: "http://localhost:3000/static/locales/add/{{lng}}/{{ns}}.json"  // Note, these locations are available via web browser
+    // addPath: function(lng, ns) {
+    //   return `http://localhost:3000/static/locales/add/${lng}/${ns}.json`
+    // },
+    // addPath: function(lng, ns) {
+    //   if (typeof window == "undefined") {
+    //     // return path.resolve(`./public/locales/${lng}/${ns}.json`);
+    //     return path.resolve(`./public/static/locales/add/${lng}/${ns}.json`);
+    //   } else {
+    //     return `http://localhost:3000/static/locales/add/${lng}/${ns}.json`;
+    //   }
+    // },
   }
 
 })
